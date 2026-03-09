@@ -11,7 +11,7 @@ public class Categoria
 
     [StringLength(30)]
     [Required(ErrorMessage = "O nome é obrigatório!")]
-    public string nome { get; set; }
+    public string Nome { get; set; }
     [StringLength(30)]
     public string Icone { get; set; }
 }

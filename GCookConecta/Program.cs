@@ -1,9 +1,38 @@
+using GCookConecta.Data;
+using GCookConecta.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Serviço de conexão do Contexto
+string conexao = builder.Configuration.GetConnectionString("Conexao");
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseSqlServer(conexao)
+);
+
+// Configuração do serviço do Identity
+builder.Services.AddIdentity<Usuario, IdentityRole>(
+    options =>
+    {
+        options.SignIn.RequireConfirmedEmail = false;
+        options.User.RequireUniqueEmail = true;
+    }
+)
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// Código para garantir a existência do banco ao executar
+using(var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await db.Database.EnsureCreatedAsync();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -16,6 +45,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
