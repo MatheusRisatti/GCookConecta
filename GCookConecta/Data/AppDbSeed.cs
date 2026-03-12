@@ -78,7 +78,7 @@ public class AppDbSeed
                 RoleId = roles[2].Id
             },
         };
-        builder.Entity<IdentityUserLogin<string>>().HasData(userRoles);
+        builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
 
         #region Popular Categoria
@@ -101,7 +101,7 @@ public class AppDbSeed
             new(){
                 Id = 4,
                 Nome = "Carnes",
-                Icone = "fas fa-drumstick-bit",
+                Icone = "fas fa-drumstick-bite",
             },
             new(){
                 Id = 5,
@@ -220,10 +220,11 @@ public class AppDbSeed
                 Nome = "Carne Moída Mexicana",
                 Descricao = "Prato perfeito para um lanche rápido ou mesmo uma refeição picante. Carne moída, pimentões, temperos e muito queijooooo",
                 CategoriaId = 4,
-                Dificuldade = Dificuldade.Fácil,
+                Dificuldade = Dificuldade.Difícil,
                 Rendimento = 5,
                 TempoPreparo = "20 minutos",
-                Foto = "/img/receitas/1.jpg",
+                Foto = "/img/receitas/1.png",
+                UsuarioId = usuarios[0].Id
             },
             new Receita() {
                 Id = 2,
@@ -233,17 +234,19 @@ public class AppDbSeed
                 Dificuldade = Dificuldade.Fácil,
                 Rendimento = 20,
                 TempoPreparo = "15 minutos",
-                Foto = "/img/receitas/2.jpg",
+                Foto = "/img/receitas/2.png",
+                UsuarioId = usuarios[0].Id
             },
             new Receita() {
                 Id = 3,
                 Nome = "Espaguete ao Pomodoro",
                 Descricao = "Uma massa leve e clássica italiana com molho de tomates frescos e manjericão.",
                 CategoriaId = 1,
-                Dificuldade = Dificuldade.Fácil,
+                Dificuldade = Dificuldade.Médio,
                 Rendimento = 2,
                 TempoPreparo = "25 minutos",
-                Foto = "/img/receitas/3.jpg",
+                Foto = "/img/receitas/3.png",
+                UsuarioId = usuarios[0].Id
             }
         };
         builder.Entity<Receita>().HasData(receitas);

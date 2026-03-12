@@ -22,6 +22,8 @@ public class AppDbContext : IdentityDbContext<Usuario>
     {
         base.OnModelCreating(builder);
 
+        AppDbSeed appDbSeed = new(builder);
+
         // Definindo chave primária composta
         builder.Entity<ReceitaIngrediente>()
             .HasKey(ri => new {ri.ReceitaId, ri.IngredienteId});
