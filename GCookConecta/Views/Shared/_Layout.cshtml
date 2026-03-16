@@ -1,17 +1,23 @@
+@{
+    ViewData["MainClass"] = ViewData["MainClass"] ?? "container";
+}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCookConecta | @ViewData["Title"]</title>
+    <link rel="shortcut icon" href="~/img/logo.png" type="image/x-icon">
     <!-- Font Awesome para ícones (profile, config, etc) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="~/css/darkStyle.css">
+    @await RenderSectionAsync("Styles", required: false)
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- NAVBAR com usuário e dropdown -->
     <nav class="navbar">
-        <a asp-action="Index" class="logo-area">
+        <a asp-action="Index" asp-controller="Home" class="logo-area">
             <div class="logo-icon">
                 <img src="~/img/logo.png" alt="logo" width="50">
             </div>
@@ -36,11 +42,14 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main class="@ViewData["MainClass"]">
         @RenderBody()
     </main>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+      lucide.createIcons();
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

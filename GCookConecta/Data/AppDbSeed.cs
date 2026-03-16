@@ -208,7 +208,47 @@ public class AppDbSeed
             new Ingrediente() { 
                 Id = 20, 
                 Nome = "Manjericão Fresco" 
-            }
+            },
+            new Ingrediente() { 
+                Id = 21, 
+                Nome = "Filé de Tilápia" 
+                },
+            new Ingrediente() {
+                 Id = 22, 
+                 Nome = "Limão"
+                  },
+            new Ingrediente() { 
+                Id = 23, 
+                Nome = "Grão de Bico" 
+                },
+            new Ingrediente() {
+                Id = 24, 
+                Nome = "Abóbora Cabotiá" 
+                },
+            new Ingrediente() { 
+                Id = 25, 
+                Nome = "Gengibre" 
+                },
+            new Ingrediente() { 
+                Id = 26, 
+                Nome = "Filé Mignon" 
+                },
+            new Ingrediente() { 
+                Id = 27, 
+                Nome = "Vinho Tinto Seco" 
+                },
+            new Ingrediente() {
+                Id = 28, 
+                Nome = "Farinha de Trigo" 
+                },
+            new Ingrediente() { 
+                Id = 29, 
+                Nome = "Creme de Leite Fresco" 
+                },
+            new Ingrediente() { 
+                Id = 30, 
+                Nome = "Fava de Baunilha" 
+                }
         };
         builder.Entity<Ingrediente>().HasData(ingredientes);
         #endregion
@@ -246,6 +286,61 @@ public class AppDbSeed
                 Rendimento = 2,
                 TempoPreparo = "25 minutos",
                 Foto = "/img/receitas/3.png",
+                UsuarioId = usuarios[0].Id
+            },
+            new Receita() {
+                Id = 4,
+                Nome = "Tilápia ao Forno",
+                Descricao = "Filés de tilápia suculentos temperados com ervas e limão, assados rapidamente para uma refeição leve.",
+                CategoriaId = 2,
+                Dificuldade = Dificuldade.Fácil,
+                Rendimento = 3,
+                TempoPreparo = "30 minutos",
+                Foto = "/img/receitas/4.png",
+                UsuarioId = usuarios[0].Id
+            },
+            new Receita() {
+                Id = 5,
+                Nome = "Salada de Grão de Bico",
+                Descricao = "Uma opção vegetariana proteica, refrescante e cheia de cores com tempero cítrico.",
+                CategoriaId = 3,
+                Dificuldade = Dificuldade.Fácil,
+                Rendimento = 4,
+                TempoPreparo = "15 minutos",
+                Foto = "/img/receitas/5.png",
+                UsuarioId = usuarios[0].Id
+            },
+            new Receita() {
+                Id = 6,
+                Nome = "Creme de Abóbora com Gengibre",
+                Descricao = "Sopa cremosa e termogênica, perfeita para dias frios e muito nutritiva.",
+                CategoriaId = 7,
+                Dificuldade = Dificuldade.Médio,
+                Rendimento = 4,
+                TempoPreparo = "40 minutos",
+                Foto = "/img/receitas/6.png",
+                UsuarioId = usuarios[0].Id
+            },
+            new Receita() {
+                Id = 7,
+                Nome = "Medalhão ao Molho Madeira",
+                Descricao = "Clássico da alta gastronomia. Exige o ponto perfeito da carne e a redução correta do molho com vinho e técnica de roux.",
+                CategoriaId = 4,
+                Dificuldade = Dificuldade.Difícil,
+                Rendimento = 2,
+                TempoPreparo = "50 minutos",
+                Foto = "/img/receitas/7.png",
+                UsuarioId = usuarios[0].Id
+            },
+            new Receita() {
+                Id = 8,
+                Nome = "Crème Brûlée",
+                Descricao = "Sobremesa francesa delicada que exige cozimento em banho-maria e finalização com maçarico para a crosta de açúcar.",
+                CategoriaId = 5,
+                Dificuldade = Dificuldade.Difícil,
+                Rendimento = 4,
+                TempoPreparo = "1 hora",
+                Foto = "/img/receitas/8.png",
                 UsuarioId = usuarios[0].Id
             }
         };
@@ -325,7 +420,80 @@ public class AppDbSeed
                 Id = 13, 
                 ReceitaId = 3, 
                 Texto = "Misture a massa ao molho e sirva imediatamente." 
-            }
+            },
+            // Preparo Tilápia (ID 4)
+            new() { 
+                Id = 14, 
+                ReceitaId = 4, 
+                Texto = "Tempere os filés com sal, limão e um pouco de azeite." 
+                },
+            new() { 
+                Id = 15, 
+                ReceitaId = 4, 
+                Texto = "Disponha em uma assadeira e leve ao forno pré-aquecido a 180°C por 20 minutos."
+                 },
+            
+            // Preparo Salada (ID 5)
+            new() { 
+                Id = 16, 
+                ReceitaId = 5, 
+                Texto = "Em uma tigela, misture o grão de bico cozido com cebola picada e pimentões." 
+                },
+            new() { 
+                Id = 17, 
+                ReceitaId = 5, 
+                Texto = "Tempere com azeite, sal e limão a gosto e sirva frio." 
+                },
+
+            // Preparo Creme de Abóbora (ID 6)
+            new() { 
+                Id = 18, 
+                ReceitaId = 6, 
+                Texto = "Cozinhe a abóbora com água e sal até que esteja bem macia." 
+                },
+            new() { 
+                Id = 19, 
+                ReceitaId = 6, 
+                Texto = "Bata no liquidificador com um pedaço pequeno de gengibre até ficar homogêneo." 
+                },
+            new() { 
+                Id = 20, 
+                ReceitaId = 6, 
+                Texto = "Volte ao fogo para apurar o sal e sirva quente." 
+                },
+                // Preparo Medalhão (ID 7)
+            new() { 
+                Id = 21, 
+                ReceitaId = 7, 
+                Texto = "Sele os medalhões em fogo alto para criar a crosta de Maillard e reserve." 
+                },
+            new() { 
+                Id = 22, 
+                ReceitaId = 7, 
+                Texto = "Na mesma panela, faça um roux com manteiga e farinha, adicione o vinho e reduza até encorpar." 
+                },
+            new() { 
+                Id = 23,
+                ReceitaId = 7, 
+                Texto = "Retorne a carne ao molho para finalizar o cozimento até o ponto desejado." 
+                },
+
+            // Preparo Crème Brûlée (ID 8)
+            new() { 
+                Id = 24, 
+                ReceitaId = 8,
+                Texto = "Aqueça o creme de leite com a baunilha sem deixar ferver e misture lentamente às gemas e açúcar." 
+                },
+            new() { 
+                Id = 25, 
+                ReceitaId = 8, 
+                Texto = "Asse em banho-maria no forno a 150°C até que as bordas estejam firmes e o centro balance levemente." 
+            },
+            new() { 
+                Id = 26, 
+                ReceitaId = 8, 
+                Texto = "Após gelar por 6 horas, polvilhe açúcar e queime com maçarico até caramelizar." 
+                }
         };
         builder.Entity<Preparo>().HasData(preparos);
         #endregion
@@ -431,7 +599,95 @@ public class AppDbSeed
                 ReceitaId = 3, 
                 IngredienteId = 14, 
                 Quantidade = "2 colheres sopa" 
-            }
+            },
+            // Ingredientes Tilápia
+            new ReceitaIngrediente() { 
+                ReceitaId = 4, 
+                IngredienteId = 21, 
+                Quantidade = "600g" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 4, 
+                IngredienteId = 22, 
+                Quantidade = "1 unidade" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 4, 
+                IngredienteId = 14, 
+                Quantidade = "A gosto" 
+                },
+
+            // Ingredientes Salada
+            new ReceitaIngrediente() { 
+                ReceitaId = 5, 
+                IngredienteId = 23, 
+                Quantidade = "400g" 
+                },
+            new ReceitaIngrediente() {
+                ReceitaId = 5, 
+                IngredienteId = 5, 
+                Quantidade = "1/2 unidade"
+                 },
+            new ReceitaIngrediente() { 
+                ReceitaId = 5, 
+                IngredienteId = 22, 
+                Quantidade = "1/2 unidade" 
+                },
+
+            // Ingredientes Creme
+            new ReceitaIngrediente() { 
+                ReceitaId = 6, 
+                IngredienteId = 24, 
+                Quantidade = "1kg" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 6, 
+                IngredienteId = 25, 
+                Quantidade = "10g" 
+                },
+            new ReceitaIngrediente() {
+                ReceitaId = 6, 
+                IngredienteId = 9, 
+                Quantidade = "1 pitada" 
+                },
+                // Ingredientes Medalhão
+            new ReceitaIngrediente() { 
+                ReceitaId = 7, 
+                IngredienteId = 26, 
+                Quantidade = "400g" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 7, 
+                IngredienteId = 27, 
+                Quantidade = "150ml" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 7, 
+                IngredienteId = 28, 
+                Quantidade = "1 colher sopa" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 7, 
+                IngredienteId = 17, 
+                Quantidade = "50g" 
+                },
+
+            // Ingredientes Crème Brûlée
+            new ReceitaIngrediente() { 
+                ReceitaId = 8, 
+                IngredienteId = 29, 
+                Quantidade = "500ml" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 8, 
+                IngredienteId = 30, 
+                Quantidade = "1 unidade" 
+                },
+            new ReceitaIngrediente() { 
+                ReceitaId = 8, 
+                IngredienteId = 9, 
+                Quantidade = "80g de açúcar" 
+                }
         };
         builder.Entity<ReceitaIngrediente>().HasData(receitaIngredientes);
         #endregion
