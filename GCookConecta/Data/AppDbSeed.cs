@@ -50,7 +50,7 @@ public class AppDbSeed
           new(){
             Id = "6a7ab764-82e6-4fd7-80f1-1c5f5abf8ff9",
             Nome = "Matheus Clementino Risatti",
-            UserName = "risattimaheus@gmail.com",
+            UserName = "risattimatheus@gmail.com",
             NormalizedUserName = "RISATTIMATHEUS@GMAIL.COM",
             Email = "risattimatheus@gmail.com",
             NormalizedEmail = "RISATTIMATHEUS@GMAIL.COM",
